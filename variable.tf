@@ -1,6 +1,6 @@
-variable "public_key" {
-  description = "SSH public key content"
-  type        = string
+variable "key_name" {
+    description = " SSH keys to connect to ec2 instance"
+    default     =  "EC2-key"
 }
 
 variable "versioning" {

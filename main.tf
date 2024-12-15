@@ -79,17 +79,17 @@ vpc_id = aws_vpc.example_vpc.id
 }
  
 # Key Pair
-resource "aws_key_pair" "example_key" {
-  key_name   = "EC2-key"
-  public_key = var.public_key # SSH public key passed dynamically
-}
+# resource "aws_key_pair" "example_key" {
+#   key_name   = "EC2-key"
+#   public_key = var.public_key # SSH public key passed dynamically
+# }
  
 # EC2 Instance VM-1
 resource "aws_instance" "VM1" {
 ami = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 subnet_id = aws_subnet.example_subnet.id
-  key_name      = aws_key_pair.example_key.key_name
+  key_name      = var.key_name
 security_groups = [aws_security_group.example_sg.name]
  
   tags = {
@@ -102,7 +102,7 @@ resource "aws_instance" "VM2" {
 ami = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 subnet_id = aws_subnet.example_subnet.id
-  key_name      = aws_key_pair.example_key.key_name
+  key_name      = var.key_name
 security_groups = [aws_security_group.example_sg.name]
  
   tags = {

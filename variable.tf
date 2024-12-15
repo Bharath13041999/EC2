@@ -1,6 +1,6 @@
 variable "key_name" {
     description = " SSH keys to connect to ec2 instance"
-    default     =  "EC2-key"
+    default     =  "my_project_key"
 }
 
 variable "versioning" {

@@ -80,7 +80,7 @@ vpc_id = aws_vpc.example_vpc.id
  
 # Key Pair
 resource "aws_key_pair" "example_key" {
-  key_name   = "example-key"
+  key_name   = "EC2-key"
   public_key = var.public_key # SSH public key passed dynamically
 }
  
